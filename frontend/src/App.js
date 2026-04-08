@@ -1,19 +1,18 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function App() {
-  const [data, setData] = useState("");
+  const [msg, setMsg] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:8080/api/hello")
       .then(res => res.text())
-      .then(result => setData(result))
-      .catch(err => console.error(err));
+      .then(data => setMsg(data));
   }, []);
 
   return (
     <div>
-      <h1>Backend Response:</h1>
-      <p>{data}</p>
+      <h1>VendorSure</h1>
+      <h2>{msg}</h2>
     </div>
   );
 }
